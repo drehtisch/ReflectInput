@@ -12,6 +12,7 @@ updates:
     reviewers:
       - "drehtisch"
     commit-message:
+      prefix: "nuget"
       include: "scope"
     schedule:
       interval: "weekly"
