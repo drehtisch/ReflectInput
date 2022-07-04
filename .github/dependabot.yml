@@ -9,8 +9,10 @@ updates:
     directory: "/" # Location of package manifests
     assignees: 
       - "drehtisch"
+      - "Lxcasx"
     reviewers:
       - "drehtisch"
+      - "Lxcasx"
     commit-message:
       prefix: "nuget"
       include: "scope"
