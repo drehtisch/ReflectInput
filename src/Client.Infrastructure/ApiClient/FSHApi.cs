@@ -5,7 +5,7 @@
 //----------------------
 
 
-using System = global::System;
+using System;
 
 #nullable enable
 
