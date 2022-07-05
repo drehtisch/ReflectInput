@@ -117,7 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="mainlayout.icon.github.tooltip" xml:space="preserve">
-    <value>View on Github</value>
+  <data name="en-US" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="languageselector.icon.tooltip" xml:space="preserve">
+    <value>Change language</value>
   </data>
 </root>

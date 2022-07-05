@@ -7,8 +7,6 @@ namespace ReflectInput.Client.Shared;
 
 public partial class BaseLayout
 {
-    private bool _rightToLeft;
-
     [Inject]
     private ThemeProvider? _themeProvider { get; set; }
 
@@ -20,8 +18,8 @@ public partial class BaseLayout
 
         if (_themeProvider is not null)
         {
-            _themeProvider.Initialize(clientPreference);
             _themeProvider.ThemePreferenceChanged += ThemePreferenceChanged;
+            _themeProvider.Initialize(clientPreference);
         }
     }
 

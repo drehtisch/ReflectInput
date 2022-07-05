@@ -1,27 +1,18 @@
 ﻿@inject IStringLocalizer<MainLayout> L
 
 <MudAppBar Elevation="0">
-@*    <MudTooltip Text="Toggle Drawer">
-        <MudIconButton Icon="@Icons.Rounded.Notes" Color="Color.Inherit" Edge="Edge.Start"
-            OnClick="@((e) => DrawerToggle())" />
-    </MudTooltip>
-     <MudButton Variant="Variant.Text" DisableElevation="true" Link="/">
-            @L["fullstackhero"]</MudButton>
-    <MudSpacer />*@
 	<MudSpacer />
     <MudHidden Breakpoint="Breakpoint.MdAndUp" Invert="true">
 		<ThemeToggle />
         <LanguageSelector />
-        <MudTooltip Text="Fork Repository">
-            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit"
-                Link="https://github.com/fullstackhero/blazor-wasm-boilerplate" Target="_blank" />
+		<MudTooltip Text="@L["mainlayout.icon.github.tooltip"]">
+            <MudIconButton Icon="@Icons.Custom.Brands.GitHub"
+							Color="Color.Inherit"
+							Link="https://github.com/drehtisch/ReflectInput"
+							Target="_blank" />
         </MudTooltip>
     </MudHidden>
 </MudAppBar>
-
-@*<MudDrawer @bind-Open="_drawerOpen" Elevation="25" ClipMode="DrawerClipMode.Never">
-    <NavMenu />
-</MudDrawer>*@
 
 <MudMainContent>
     <MudContainer MaxWidth="MaxWidth.False" Class="mt-4">

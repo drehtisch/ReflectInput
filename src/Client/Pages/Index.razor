@@ -5,11 +5,6 @@
 
 <MudContainer>
     <MudGrid>
-@*        <MudItem xs="12" sm="12" md="12">
-            <div class="d-flex justify-center mt-4">
-                 <img src="full-stack-hero-logo.png" Style="height:250px" />
-            </div>
-        </MudItem>*@
         <MudItem xs="12" sm="12" md="12">
 			<MudText Align="Align.Center" Typo="Typo.h3" Class="mb-4">
 				@L["index.title"]
@@ -48,14 +43,10 @@
 						</MudButton>
 					</div>
 				</MudItem>
-				<MudItem md="6">
+				<MudItem xs="12" md="6">
+					<MudSkeleton SkeletonType="SkeletonType.Rectangle" Height="300px" />
 				</MudItem>
 			</MudGrid>
         </MudItem>
     </MudGrid>
 </MudContainer>
-
-@code {
-	private string _identifier { get; set; }
-	private string _text { get; set; }
-}

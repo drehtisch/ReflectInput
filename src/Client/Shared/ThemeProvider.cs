@@ -26,7 +26,6 @@ public class ThemeProvider
     public void ChangeThemePreference(ClientPreference themePreference)
     {
         SetCurrentTheme(themePreference);
-        ThemePreferenceChanged?.Invoke(CurrentTheme);
         //await ClientPreferences.SetPreference(themePreference);
     }
 
@@ -38,5 +37,6 @@ public class ThemeProvider
         CurrentTheme.LayoutProperties.DefaultBorderRadius = $"{themePreference.BorderRadius}px";
         CurrentTheme.LayoutProperties.DefaultBorderRadius = $"{themePreference.BorderRadius}px";
         //_rightToLeft = themePreference.IsRTL;
+        ThemePreferenceChanged?.Invoke(CurrentTheme);
     }
 }
