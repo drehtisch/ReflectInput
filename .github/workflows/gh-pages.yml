@@ -18,6 +18,12 @@ jobs:
         dotnet-version: 6.0.x
     - name: Publish with dotnet
       run: dotnet publish --configuration Release --output build
+      # changes the base-tag in index.html from '/' to 'BlazorGitHubPagesDemo' to match GitHub Pages repository subdirectory
+    - name: Change base-tag in index.html from / to ReflectInput
+      run: sed -i 's/<base href="\/" \/>/<base href="\/ReflectInput\/" \/>/g' build/wwwroot/index.html
+      # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
+    - name: Add .nojekyll file
+      run: touch build/wwwroot/.nojekyll
     - name: Deploy to Github Pages
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
