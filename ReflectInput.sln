@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{F529
 		scripts\pull-shared-from-webapi.ps1 = scripts\pull-shared-from-webapi.ps1
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectInput.Analysis", "ReflectInput.Analysis\ReflectInput.Analysis.csproj", "{0CDA7F63-190A-40E3-829B-2A38AC059BF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{28E5DFC7-A05B-40DB-9E35-AC1E84C008A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28E5DFC7-A05B-40DB-9E35-AC1E84C008A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28E5DFC7-A05B-40DB-9E35-AC1E84C008A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CDA7F63-190A-40E3-829B-2A38AC059BF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CDA7F63-190A-40E3-829B-2A38AC059BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CDA7F63-190A-40E3-829B-2A38AC059BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CDA7F63-190A-40E3-829B-2A38AC059BF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
