@@ -124,10 +124,12 @@
     <value>Analyze</value>
   </data>
   <data name="index.description" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</value>
+    <value>Reflect Input is used for simple analysis of texts to count the words that appear in them and their frequency. To analyze a text, enter it in the "Text" field, assign an identifier and press "Analyze". An identifier can be any text e.g. a name of the text or the source e.g. a url. The text can be any text you want to be counted/analyzed.
+
+To analyze more texts click on "Next" and continue in the same way. Repeat this procedure until you have entered all the texts you want to analyze. Finally, click on "CSV Export" to download the aggregated result.</value>
   </data>
   <data name="index.textfield.identifier.label" xml:space="preserve">
-    <value>Indentifier</value>
+    <value>Identifier</value>
   </data>
   <data name="index.textfield.text.label" xml:space="preserve">
     <value>Text</value>
