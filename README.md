@@ -1,5 +1,9 @@
 # ReflectInput
 
+<p align="center">
+    <img src="ReflectInput-Screenshot.png" alt="fullstackhero">
+</p>
+
 ## Goals
 
 - Allow for easy counting of words of a input text (Text & Word count analysis)
