@@ -1,0 +1,16 @@
+<MudGrid>
+    @for (int i = 0; i < items; i++)
+    {
+        <MudItem md="12">
+            <MudSkeleton SkeletonType="SkeletonType.Rectangle" Height="25px" Class="rounded" />
+        </MudItem>
+    }
+
+    <MudItem md="12" class="d-flex justify-end">
+        <MudSkeleton SkeletonType="SkeletonType.Rectangle" Height="35px" Width="100px" Class="rounded" />
+    </MudItem>
+</MudGrid>
+
+@code {
+    private int items = 3;
+}

@@ -16,7 +16,7 @@
 
 		<MudItem xs="12" sm="12" md="12" class="mt-4">
 			<MudGrid>
-				<MudItem xs="12" md="6">
+				<MudItem xs="12" md="9">
 					<MudTextField
 						@bind-Value="_identifier"
 						Variant="Variant.Outlined"
@@ -35,16 +35,39 @@
 					></MudTextField>
 
 					<div class="d-flex justify-space-between">
-						<MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="@AnalyzeClicked">
+						<MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="@AnalyzeClicked" Disabled="@analyzed">
 							@L["index.button.submit.text"]
 						</MudButton>
-						<MudButton Variant="Variant.Text" Color="Color.Error" @onclick="@ResetClicked">
+						<MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="@NextClicked">
 							@L["index.button.submit.next"]
 						</MudButton>
 					</div>
 				</MudItem>
-                <MudItem xs="12" md="6">
-                    <MatrixTemplate />
+                <MudItem xs="12" md="3">
+                    @if (_textAnalyzer.Identifier.Count is not 0)
+                    {
+                        <MudPaper Width="100%" Class="mb-3" Elevation="0" Outlined="true">
+                            <MudList Style="max-height: 300px" class="overflow-auto">
+                                @foreach (var identifier in _textAnalyzer.Identifier)
+                                {
+                                    <MudListItem Text="@identifier"/>
+                                }
+                            </MudList>
+                        </MudPaper>
+
+                        <div class="d-flex justify-space-between">
+                            <MudButton Variant="Variant.Text" Color="Color.Error" @onclick="@ClearClicked">
+                                @L["index.button.result.clear"]
+                            </MudButton>
+                            <MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="@ExportCsvClicked">
+                                @L["index.button.result.export"]
+                            </MudButton>
+                        </div>
+                    }
+                    else
+                    {
+                        <IdentifierListTemplate/>
+                    }
                 </MudItem>
             </MudGrid>
         </MudItem>
