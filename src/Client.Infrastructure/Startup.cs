@@ -1,11 +1,7 @@
-﻿using FSH.WebApi.Shared.Authorization;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using MudBlazor;
 using MudBlazor.Services;
 using ReflectInput.Client.Infrastructure.ApiClient;
-using ReflectInput.Client.Infrastructure.Auth;
-using ReflectInput.Client.Infrastructure.Notifications;
 using ReflectInput.Client.Infrastructure.Preferences;
 using System.Globalization;
 
@@ -29,9 +25,6 @@ public static class Startup
             .AddScoped<IClientPreferenceManager, ClientPreferenceManager>()
             .AutoRegisterInterfaces<IAppService>()
             .AutoRegisterInterfaces<IApiService>()
-            .AddNotifications()
-            .AddAuthentication(config)
-            .AddAuthorizationCore(RegisterPermissionClaims)
 
             // Add Api Http Client.
             .AddHttpClient(ClientName, client =>
@@ -40,17 +33,9 @@ public static class Startup
                     client.DefaultRequestHeaders.AcceptLanguage.ParseAdd(CultureInfo.DefaultThreadCurrentCulture?.TwoLetterISOLanguageName);
                     client.BaseAddress = new Uri(config[ConfigNames.ApiBaseUrl]);
                 })
-                .AddAuthenticationHandler(config)
                 .Services
             .AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient(ClientName));
 
-    private static void RegisterPermissionClaims(AuthorizationOptions options)
-    {
-        foreach (var permission in FSHPermissions.All)
-        {
-            options.AddPolicy(permission.Name, policy => policy.RequireClaim(FSHClaims.Permission, permission.Name));
-        }
-    }
 
     public static IServiceCollection AutoRegisterInterfaces<T>(this IServiceCollection services)
     {

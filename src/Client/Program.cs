@@ -4,6 +4,7 @@ using ReflectInput.Client;
 using ReflectInput.Client.Infrastructure;
 using ReflectInput.Client.Infrastructure.Common;
 using ReflectInput.Client.Infrastructure.Preferences;
+using ReflectInput.Client.Shared;
 using System.Globalization;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -12,6 +13,7 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddClientServices(builder.Configuration);
+builder.Services.AddSingleton<ThemeProvider>();
 
 var host = builder.Build();
 

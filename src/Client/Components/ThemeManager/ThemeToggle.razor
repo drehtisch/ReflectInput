@@ -1,0 +1,12 @@
+﻿@inject IStringLocalizer<ThemeToggle> L
+
+<MudTooltip Text="@L["themetoggle.icon.tooltip"]">
+	<MudToggleIconButton @bind-Toggled="_isDarkMode"
+						 Icon="@Icons.Material.Filled.WbSunny"
+						 Color="@Color.Warning"
+						 Title="Off" Class="d-flex ml-auto"
+						 ToggledIcon="@Icons.Material.Filled.DarkMode"
+						 ToggledColor="@Color.Surface"
+						 ToggledTitle="On"
+						 @onclick="@ToggleDarkMode" />
+</MudTooltip>

@@ -117,22 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="index.button.submit.next" xml:space="preserve">
-    <value>Next</value>
+  <data name="en-US" xml:space="preserve">
+    <value>English</value>
   </data>
-  <data name="index.button.submit.text" xml:space="preserve">
-    <value>Analyze</value>
-  </data>
-  <data name="index.description" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</value>
-  </data>
-  <data name="index.textfield.identifier.label" xml:space="preserve">
-    <value>Indentifier</value>
-  </data>
-  <data name="index.textfield.text.label" xml:space="preserve">
-    <value>Text</value>
-  </data>
-  <data name="index.title" xml:space="preserve">
-    <value>Reflect Input</value>
+  <data name="languageselector.icon.tooltip" xml:space="preserve">
+    <value>Change language</value>
   </data>
 </root>
