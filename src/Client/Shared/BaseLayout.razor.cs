@@ -1,48 +1,32 @@
-﻿using MudBlazor;
+﻿using Microsoft.AspNetCore.Components;
+using MudBlazor;
 using ReflectInput.Client.Infrastructure.Preferences;
 using ReflectInput.Client.Infrastructure.Theme;
 
 namespace ReflectInput.Client.Shared;
+
 public partial class BaseLayout
 {
-    private ClientPreference? _themePreference;
-    private MudTheme _currentTheme = new LightTheme();
-    private bool _themeDrawerOpen;
-    private bool _rightToLeft;
+    [Inject]
+    private ThemeProvider? _themeProvider { get; set; }
+
+    private MudTheme _currentTheme { get; set; } = new LightTheme();
 
     protected override async Task OnInitializedAsync()
     {
-        _themePreference = await ClientPreferences.GetPreference() as ClientPreference;
-        if (_themePreference == null) _themePreference = new ClientPreference();
-        SetCurrentTheme(_themePreference);
+        var clientPreference = await ClientPreferences.GetPreference() as ClientPreference;
 
-        Snackbar.Add("Like this boilerplate? ", Severity.Normal, config =>
+        if (_themeProvider is not null)
         {
-            config.BackgroundBlurred = true;
-            config.Icon = Icons.Custom.Brands.GitHub;
-            config.Action = "Star us on Github!";
-            config.ActionColor = Color.Primary;
-            config.Onclick = snackbar =>
-            {
-                Navigation.NavigateTo("https://github.com/fullstackhero/blazor-wasm-boilerplate");
-                return Task.CompletedTask;
-            };
-        });
+            _themeProvider.ThemePreferenceChanged += ThemePreferenceChanged;
+            _themeProvider.Initialize(clientPreference);
+        }
     }
 
-    private async Task ThemePreferenceChanged(ClientPreference themePreference)
+    private void ThemePreferenceChanged(MudTheme theme, ClientPreference clientPreference)
     {
-        SetCurrentTheme(themePreference);
-        await ClientPreferences.SetPreference(themePreference);
-    }
-
-    private void SetCurrentTheme(ClientPreference themePreference)
-    {
-        _currentTheme = themePreference.IsDarkMode ? new DarkTheme() : new LightTheme();
-        _currentTheme.Palette.Primary = themePreference.PrimaryColor;
-        _currentTheme.Palette.Secondary = themePreference.SecondaryColor;
-        _currentTheme.LayoutProperties.DefaultBorderRadius = $"{themePreference.BorderRadius}px";
-        _currentTheme.LayoutProperties.DefaultBorderRadius = $"{themePreference.BorderRadius}px";
-        _rightToLeft = themePreference.IsRTL;
+        _currentTheme = theme;
+        _ = ClientPreferences.SetPreference(clientPreference);
+        StateHasChanged();
     }
 }
