@@ -23,9 +23,10 @@ public partial class BaseLayout
         }
     }
 
-    public void ThemePreferenceChanged(MudTheme theme)
+    private void ThemePreferenceChanged(MudTheme theme, ClientPreference clientPreference)
     {
         _currentTheme = theme;
+        _ = ClientPreferences.SetPreference(clientPreference);
         StateHasChanged();
     }
 }

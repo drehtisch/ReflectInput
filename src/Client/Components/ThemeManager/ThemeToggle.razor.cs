@@ -11,10 +11,9 @@ public partial class ThemeToggle
     [Inject]
     private ThemeProvider? _themeProvider { get; set; }
 
-    [EditorRequired]
-    public ClientPreference ThemePreference { get; set; } = default!;
+    [EditorRequired] private ClientPreference ThemePreference { get; set; } = default!;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         if (_themeProvider is not null)
         {
@@ -29,7 +28,7 @@ public partial class ThemeToggle
     private async Task ToggleDarkMode()
     {
         _isDarkMode = !_isDarkMode;
-        _themeProvider.ThemePreference!.IsDarkMode = _isDarkMode;
+        _themeProvider!.ThemePreference!.IsDarkMode = _isDarkMode;
         _themeProvider.ChangeThemePreference(_themeProvider.ThemePreference);
         await OnIconClicked.InvokeAsync(_isDarkMode);
     }

@@ -35,18 +35,18 @@
 					></MudTextField>
 
 					<div class="d-flex justify-space-between">
-						<MudButton Variant="Variant.Filled" Color="Color.Primary">
+						<MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="@AnalyzeClicked">
 							@L["index.button.submit.text"]
 						</MudButton>
-						<MudButton Variant="Variant.Text" Color="Color.Error">
+						<MudButton Variant="Variant.Text" Color="Color.Error" @onclick="@ResetClicked">
 							@L["index.button.submit.next"]
 						</MudButton>
 					</div>
 				</MudItem>
-				<MudItem xs="12" md="6">
-					<MudSkeleton SkeletonType="SkeletonType.Rectangle" Height="300px" />
-				</MudItem>
-			</MudGrid>
+                <MudItem xs="12" md="6">
+                    <MatrixTemplate />
+                </MudItem>
+            </MudGrid>
         </MudItem>
     </MudGrid>
 </MudContainer>
