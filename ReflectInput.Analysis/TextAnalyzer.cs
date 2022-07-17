@@ -5,6 +5,7 @@ namespace ReflectInput.Analysis;
 public class TextAnalyzer
 {
     private readonly List<InputResultModel> _inputResults = new();
+    public List<string> Identifier => _inputResults.ConvertAll(x => x.Identifier);
     public InputResultModel CountWords(string content, string identifier)
     {
         char[]? punctuation = content.Where(char.IsPunctuation).Distinct().ToArray();
@@ -87,6 +88,11 @@ public class TextAnalyzer
         table.Rows.Add(totalRow);
 
         return table;
+    }
+
+    public void Clear()
+    {
+        _inputResults.Clear();
     }
 }
 
