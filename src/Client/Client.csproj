@@ -19,7 +19,6 @@
     <ItemGroup>
         <ProjectReference Include="..\..\ReflectInput.Analysis\ReflectInput.Analysis.csproj" />
         <ProjectReference Include="..\Client.Infrastructure\Client.Infrastructure.csproj" />
-        <ProjectReference Include="..\Shared\Shared.csproj" />
     </ItemGroup>
 
     <ItemGroup>
