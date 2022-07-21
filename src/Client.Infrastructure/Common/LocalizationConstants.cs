@@ -7,6 +7,6 @@ public static class LocalizationConstants
     public static readonly LanguageCode[] SupportedLanguages =
     {
         new("en-US", "English"),
-        new("de-DE", "German")
+        //new("de-DE", "German")
     };
 }
