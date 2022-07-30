@@ -38,24 +38,17 @@
 						<MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="@AnalyzeClicked" Disabled="@analyzed">
 							@L["index.button.submit.text"]
 						</MudButton>
-						<MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="@NextClicked">
-							@L["index.button.submit.next"]
-						</MudButton>
+                        @if (_textAnalyzer.Identifier.Count is not 0){
+						    <MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="@NextClicked">
+							    @L["index.button.submit.next"]
+						    </MudButton>
+                        }
 					</div>
 				</MudItem>
                 <MudItem xs="12" md="3">
                     @if (_textAnalyzer.Identifier.Count is not 0)
                     {
-                        <MudPaper Width="100%" Class="mb-3" Elevation="0" Outlined="true">
-                            <MudList Style="max-height: 300px" class="overflow-auto">
-                                @foreach (var identifier in _textAnalyzer.Identifier)
-                                {
-                                    <MudListItem Text="@identifier"/>
-                                }
-                            </MudList>
-                        </MudPaper>
-
-                        <div class="d-flex justify-space-between">
+                        <div class="d-flex justify-space-between mb-2">
                             <MudButton Variant="Variant.Text" Color="Color.Error" @onclick="@ClearClicked">
                                 @L["index.button.result.clear"]
                             </MudButton>
@@ -63,6 +56,15 @@
                                 @L["index.button.result.export"]
                             </MudButton>
                         </div>
+
+                        <MudPaper Width="100%" Elevation="0" Outlined="true">
+                            <MudList Style="max-height: 300px" class="overflow-auto">
+                                @foreach (var identifier in _textAnalyzer.Identifier)
+                                {
+                                    <MudListItem Text="@identifier"/>
+                                }
+                            </MudList>
+                        </MudPaper>
                     }
                     else
                     {
